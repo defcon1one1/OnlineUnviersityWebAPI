@@ -40,13 +40,16 @@ namespace OnlineUniversityWebAPI.Services
             var baseQuery = _dbContext.Students
                 .Include(s => s.Enrollments)
                 .ThenInclude(e => e.Grades)
-                .Where(s => query.SearchPhrase == null || s.Name.ToLower().Contains(query.SearchPhrase.ToLower()));
+                .Where(s => query.SearchPhrase == null || s.FirstName.ToLower().Contains(query.SearchPhrase.ToLower())
+                                                       || s.LastName.ToLower().Contains(query.SearchPhrase.ToLower()));
 
             if(!string.IsNullOrEmpty(query.SortBy))
             {
                 var columnsSelector = new Dictionary<string, Expression<Func<Student, object>>>
                 {
-                    { nameof(Student.Name), s => s.Name },
+                    { nameof(Student.FirstName), s => s.FirstName },
+                    { nameof(Student.LastName), s => s.LastName },
+                    { nameof(Student.Age), s => s.Age },
                     { nameof(Student.Id), s => s.Id },
                 };
 
@@ -91,7 +94,7 @@ namespace OnlineUniversityWebAPI.Services
             if (student == null)
                 throw new NotFoundException("Student not found");
 
-            student.Name = dto.Name;
+            student.FirstName = dto.FirstName;
 
             _dbContext.SaveChanges();
         }

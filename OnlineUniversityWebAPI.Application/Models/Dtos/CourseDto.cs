@@ -14,7 +14,7 @@ namespace OnlineUniversityWebAPI.Application.Models.Dtos
         public string Name { get; set; }
         public bool? IsActive { get; set; } = true;
         public List<ModuleDto> Modules { get; set; }
-        //public List<Enrollment> Enrollments { get; set; }
+        public int ModuleCount { get => Modules.Count; }
 
     }
 }

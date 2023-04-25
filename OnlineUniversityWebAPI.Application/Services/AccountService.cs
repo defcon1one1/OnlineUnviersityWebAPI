@@ -32,7 +32,9 @@ namespace OnlineUniversityWebAPI.Application.Services
             var newStudent = new Student()
             {
                 Email = dto.Email,
-                Name = dto.Name,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                DateOfBirth = dto.DateOfBirth,
                 RoleId = studentRole.Id
             };
 
@@ -65,7 +67,6 @@ namespace OnlineUniversityWebAPI.Application.Services
             var claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Name),
                 new Claim(ClaimTypes.Role, user.Role.Name)
             };
 

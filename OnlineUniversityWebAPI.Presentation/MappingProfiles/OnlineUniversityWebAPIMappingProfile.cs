@@ -15,7 +15,6 @@ namespace OnlineUniversityWebAPI.Presentation.MappingProfiles
         {
             CreateMap<Student, StudentDto>();
             CreateMap<StudentDto, Student>();
-            CreateMap<CreateStudentDto, Student>();
 
             CreateMap<EnrollmentDto, Enrollment>();
             CreateMap<Enrollment, EnrollmentDto>();

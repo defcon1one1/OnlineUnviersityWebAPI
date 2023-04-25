@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineUniversityWebAPI.Domain.Entities
 {
@@ -12,7 +9,19 @@ namespace OnlineUniversityWebAPI.Domain.Entities
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public List<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
-        public int Age { get => DateTime.Now.Year - DateOfBirth.Year; }
 
+        public int Age => CalculateAge();
+
+        private int CalculateAge()
+        {
+            int age = DateTime.Today.Year - DateOfBirth.Year;
+
+            if (DateOfBirth.Date > DateTime.Today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
     }
 }

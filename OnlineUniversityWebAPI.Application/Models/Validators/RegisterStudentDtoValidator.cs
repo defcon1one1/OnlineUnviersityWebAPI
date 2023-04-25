@@ -1,12 +1,7 @@
 ﻿using FluentValidation;
-using Microsoft.AspNetCore.Identity;
 using OnlineUniversityWebAPI.Application.Models.Dtos;
 using OnlineUniversityWebAPI.Infrastructure.Persistence;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineUniversityWebAPI.Application.Models.Validators
 {
@@ -15,6 +10,16 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
 
         public RegisterStudentDtoValidator(OnlineUniversityWebAPIDbContext dbContext)
         {
+            RuleFor(x => x.FirstName)
+                .NotEmpty()
+                .MinimumLength(2)
+                .MaximumLength(50);
+
+            RuleFor(x => x.LastName)
+                .NotEmpty()
+                .MinimumLength(2)
+                .MaximumLength(50);
+
             RuleFor(x => x.Email)
                 .NotEmpty()
                 .EmailAddress();
@@ -26,6 +31,15 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
                 .Equal(x => x.Password)
                 .WithMessage("Passwords are not the same");
 
+            RuleFor(x => x.DateOfBirth)
+                .NotEmpty()
+                .Must(dob => dob <= DateTime.Now.AddYears(-18))
+                .WithMessage("You must be at least 18 years old");
+
+            RuleFor(x => x.DateOfBirth)
+                .NotEmpty()
+                .Must(dob => DateTime.TryParse(dob.ToString(), out _))
+                .WithMessage("Date of birth must be a valid date");
 
             RuleFor(x => x.Email)
                 .Custom((value, context) =>
@@ -38,5 +52,6 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
                 });
 
         }
+
     }
 }
