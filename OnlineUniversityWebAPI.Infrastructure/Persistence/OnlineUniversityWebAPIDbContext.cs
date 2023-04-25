@@ -1,11 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineUniversityWebAPI.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineUniversityWebAPI.Infrastructure.Persistence
 {
@@ -77,9 +71,9 @@ namespace OnlineUniversityWebAPI.Infrastructure.Persistence
             {
                 eb.HasKey(e => e.Id);
 
-                eb.Property(e => e.Name)
-                    .HasMaxLength(35)
-                    .IsRequired();
+                eb.Property(e => e.Email)
+                .HasMaxLength(100)
+                .IsRequired();
 
                 eb.HasOne(r => r.Role)
                   .WithMany()
@@ -90,6 +84,17 @@ namespace OnlineUniversityWebAPI.Infrastructure.Persistence
 
             modelBuilder.Entity<Student>(eb =>
             {
+                eb.Property(s => s.FirstName)
+                .IsRequired()
+                .HasMaxLength(100);
+
+                eb.Property(s => s.LastName)
+                .IsRequired()
+                .HasMaxLength(100);
+
+                eb.Property(s => s.DateOfBirth)
+                .IsRequired();
+
                 eb.HasMany(s => s.Enrollments)
                     .WithOne(ce => ce.Student)
                     .HasForeignKey(ce => ce.StudentId);

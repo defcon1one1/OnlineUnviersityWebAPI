@@ -13,6 +13,7 @@ namespace OnlineUniversityWebAPI.Domain.Entities
         public bool? IsActive { get; set; } = true;
         public List<Module> Modules { get; set; }
         public List<Enrollment> Enrollments { get; set; }
+        public int ModuleCount { get => Modules.Count; }
 
     }
 }

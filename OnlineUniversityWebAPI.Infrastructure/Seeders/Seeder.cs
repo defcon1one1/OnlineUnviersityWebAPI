@@ -44,12 +44,22 @@ namespace OnlineUniversityWebAPI.Infrastructure.Seeders
                     // students -------------------------------------------------------------
                     var students = new List<Student>
             {
-                new Student { Name = "John Smith", Email = "johnsmith@mail.com", RoleId = 2, PasswordHash = HashPassword("johnsmith@mail.com") },
-                new Student { Name = "Anna Doe", Email = "annadoe@mail.com", RoleId = 2, PasswordHash = HashPassword("annadoe@mail.com")  },
-                new Student { Name = "Bob Johnson", Email = "bobjohnson@mail.com", RoleId = 2, PasswordHash = HashPassword("bobjohnson@mail.com")  },
-                new Student { Name = "Frank Underwood", Email = "frankunderwood@mail.com", RoleId = 2, PasswordHash = HashPassword("frankunderwood@mail.com") },
-                new Student { Name = "Matthew Harris", Email = "matthewharris@mail.com", RoleId = 2, PasswordHash = HashPassword("matthewharris@mail.com")  },
-                new Student { Name = "Gregory Taylor", Email = "gregorytaylor@mail.com", RoleId = 2, PasswordHash = HashPassword("gregorytaylor@mail.com")  }
+                new Student { FirstName = "John", LastName = "Smith", DateOfBirth = new DateTime(1992, 12, 29), Email = "johnsmith@mail.com", RoleId = 2, PasswordHash = HashPassword("johnsmith@mail.com") },
+                new Student { FirstName = "Albert", LastName = "Adams", DateOfBirth = new DateTime(1982, 12, 29), Email = "albertadams@mail.com", RoleId = 2, PasswordHash = HashPassword("albertadams@mail.com") },
+                new Student { FirstName = "Amber", LastName = "Hebert", DateOfBirth = new DateTime(1992, 12, 29), Email = "amberhebert@mail.com", RoleId = 2, PasswordHash = HashPassword("amberhebert@mail.com") },
+                new Student { FirstName = "Aliyah", LastName = "Holmes", DateOfBirth = new DateTime(1992, 12, 29), Email = "aliyahholmes@mail.com", RoleId = 2, PasswordHash = HashPassword("aliyahholmes@mail.com") },
+                new Student { FirstName = "Danielle", LastName = "Goodman", DateOfBirth = new DateTime(1992, 12, 29), Email = "daniellegoodman@mail.com", RoleId = 2, PasswordHash = HashPassword("daniellegoodman@mail.com") },
+                new Student { FirstName = "Travis", LastName = "Riley", DateOfBirth = new DateTime(1992, 12, 29), Email = "travisriley@mail.com", RoleId = 2, PasswordHash = HashPassword("travisriley@mail.com") },
+                new Student { FirstName = "Frazer", LastName = "Mason", DateOfBirth = new DateTime(1992, 12, 29), Email = "frazermason@mail.com", RoleId = 2, PasswordHash = HashPassword("frazermason@mail.com") },
+                new Student { FirstName = "Cory", LastName = "Thompson", DateOfBirth = new DateTime(1992, 12, 29), Email = "corythompson@mail.com", RoleId = 2, PasswordHash = HashPassword("corythompson@mail.com") },
+                new Student { FirstName = "Sid", LastName = "Hodges", DateOfBirth = new DateTime(1992, 12, 29), Email = "sidhodges@mail.com", RoleId = 2, PasswordHash = HashPassword("sidhodges@mail.com") },
+                new Student { FirstName = "Travis", LastName = "Barlow", DateOfBirth = new DateTime(1992, 12, 29), Email = "travisbarlow@mail.com", RoleId = 2, PasswordHash = HashPassword("travisbarlow@mail.com") },
+                new Student { FirstName = "Jonas", LastName = "Turner", DateOfBirth = new DateTime(1992, 12, 29), Email = "jonasturner@mail.com", RoleId = 2, PasswordHash = HashPassword("jonasturner@mail.com") },
+                new Student { FirstName = "Hamzah", LastName = "Barrera", DateOfBirth = new DateTime(1992, 12, 29), Email = "hamzahbarrera@mail.com", RoleId = 2, PasswordHash = HashPassword("hamzahbarrera@mail.com") },
+                new Student { FirstName = "Derek", LastName = "Dean", DateOfBirth = new DateTime(1992, 12, 29), Email = "derekdean@mail.com", RoleId = 2, PasswordHash = HashPassword("derekdean@mail.com") },
+                new Student { FirstName = "Alexis", LastName = "Lynn", DateOfBirth = new DateTime(1992, 12, 29), Email = "alexislynn@mail.com", RoleId = 2, PasswordHash = HashPassword("alexislynn@mail.com") },
+                new Student { FirstName = "Joel", LastName = "Cohen", DateOfBirth = new DateTime(1992, 12, 29), Email = "joelcohen@mail.com", RoleId = 2, PasswordHash = HashPassword("joelcohen@mail.com") },
+                new Student { FirstName = "Sam", LastName = "Guzman", DateOfBirth = new DateTime(1992, 12, 29), Email = "samguzman@mail.com", RoleId = 2, PasswordHash = HashPassword("samguzman@mail.com") },
 
             };
 
@@ -68,7 +78,12 @@ namespace OnlineUniversityWebAPI.Infrastructure.Seeders
                 new Course { Name = "Math" },
                 new Course { Name = "History" },
                 new Course { Name = "Biology"},
-                new Course { Name = "Chemistry" }
+                new Course { Name = "Chemistry" },
+                new Course { Name = "Philosophy" },
+                new Course { Name = "Economics" },
+                new Course { Name = "Finances" },
+                new Course { Name = "Business" },
+
             };
 
                     foreach (var course in courses)
@@ -87,6 +102,7 @@ namespace OnlineUniversityWebAPI.Infrastructure.Seeders
                 new Module { Name = "Algebra", CourseId = 1 },
                 new Module { Name = "Calculus", CourseId = 1 },
                 new Module { Name = "Statistics", CourseId = 1 },
+                new Module { Name = "Theory of probability", CourseId = 1 },
 
                 new Module { Name = "Medieval history", CourseId = 2 },
                 new Module { Name = "Modern history", CourseId = 2 },
@@ -98,7 +114,18 @@ namespace OnlineUniversityWebAPI.Infrastructure.Seeders
 
                 new Module { Name = "Basics of chemistry", CourseId = 4 },
                 new Module { Name = "Organic chemistry", CourseId = 4 },
-                new Module { Name = "Practical chemistry", CourseId = 4}
+                new Module { Name = "Practical chemistry", CourseId = 4},
+                
+                new Module { Name = "Modernism", CourseId = 5},
+                new Module { Name = "Platonism", CourseId = 5},
+
+                new Module { Name = "Microeconomics", CourseId = 6},
+                new Module { Name = "Macroeconomics", CourseId = 6},
+
+                new Module { Name = "Tax law", CourseId = 7},
+                new Module { Name = "Property law", CourseId = 7},
+
+                new Module { Name = "Management", CourseId = 8},
 
 
             };
@@ -139,22 +166,23 @@ namespace OnlineUniversityWebAPI.Infrastructure.Seeders
                 new Grade { Value = 3, ModuleId = 1, EnrollmentId = 1 },
                 new Grade { Value = 5, ModuleId = 2, EnrollmentId = 1 },
                 new Grade { Value = null, ModuleId = 3, EnrollmentId = 1 },
+                new Grade { Value = 4, ModuleId = 4, EnrollmentId = 1 },
 
-                new Grade { Value = 3, ModuleId = 4, EnrollmentId = 2 },
-                new Grade { Value = 5, ModuleId = 5, EnrollmentId = 2 },
-                new Grade { Value = 4, ModuleId = 6, EnrollmentId = 2 },
+                new Grade { Value = 3, ModuleId = 5, EnrollmentId = 2 },
+                new Grade { Value = 5, ModuleId = 6, EnrollmentId = 2 },
+                new Grade { Value = 4, ModuleId = 7, EnrollmentId = 2 },
 
-                new Grade { Value = 3, ModuleId = 4, EnrollmentId = 3 },
-                new Grade { Value = 5, ModuleId = 5, EnrollmentId = 3 },
-                new Grade { Value = null, ModuleId = 6, EnrollmentId = 3 },
+                new Grade { Value = 3, ModuleId = 5, EnrollmentId = 3 },
+                new Grade { Value = 5, ModuleId = 6, EnrollmentId = 3 },
+                new Grade { Value = null, ModuleId = 7, EnrollmentId = 3 },
 
-                new Grade { Value = 4, ModuleId = 7, EnrollmentId = 4 },
                 new Grade { Value = 4, ModuleId = 8, EnrollmentId = 4 },
-                new Grade { Value = null, ModuleId = 9, EnrollmentId = 4 },
+                new Grade { Value = 4, ModuleId = 9, EnrollmentId = 4 },
+                new Grade { Value = null, ModuleId = 10, EnrollmentId = 4 },
 
-                new Grade { Value = null, ModuleId = 10, EnrollmentId = 5 },
                 new Grade { Value = null, ModuleId = 11, EnrollmentId = 5 },
-                new Grade { Value = null, ModuleId = 12, EnrollmentId = 5 }
+                new Grade { Value = null, ModuleId = 12, EnrollmentId = 5 },
+                new Grade { Value = null, ModuleId = 13, EnrollmentId = 5 }
 
             };
 
