@@ -7,7 +7,6 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
 {
     public class RegisterStudentDtoValidator : AbstractValidator<RegisterStudentDto>
     {
-
         public RegisterStudentDtoValidator(OnlineUniversityWebAPIDbContext dbContext)
         {
             RuleFor(x => x.FirstName)
@@ -32,14 +31,10 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
                 .WithMessage("Passwords are not the same");
 
             RuleFor(x => x.DateOfBirth)
-                .NotEmpty()
-                .Must(dob => dob <= DateTime.Now.AddYears(-18))
-                .WithMessage("You must be at least 18 years old");
+                .Must(date => DateTime.TryParse(date.ToString(), out _))
+                .WithMessage("Invalid date format");
 
-            RuleFor(x => x.DateOfBirth)
-                .NotEmpty()
-                .Must(dob => DateTime.TryParse(dob.ToString(), out _))
-                .WithMessage("Date of birth must be a valid date");
+
 
             RuleFor(x => x.Email)
                 .Custom((value, context) =>
@@ -50,8 +45,17 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
                         context.AddFailure("Email", "That email is already registered");
                     }
                 });
-
         }
 
+        private bool BeAValidDate(string dateOfBirthString)
+        {
+            DateTime dateOfBirth;
+            return DateTime.TryParse(dateOfBirthString, out dateOfBirth);
+        }
+
+        private bool BeAtLeast18YearsAgo(DateTime dateOfBirth)
+        {
+            return dateOfBirth.AddYears(18) <= DateTime.Now;
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace OnlineUniversityWebAPI.Application.Services
             _mapper = mapper;
         }
 
-        public PagedResult<CourseDto> GetAll(Query query)
+        public PagedResult<CourseDto> GetAll(CourseQuery query)
         {
             var baseQuery = _dbContext.Courses
                 .Include(c => c.Modules)

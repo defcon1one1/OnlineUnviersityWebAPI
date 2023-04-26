@@ -21,7 +21,7 @@ namespace OnlineUniversityWebAPI.Presentation.Controllers
         }
 
         [HttpGet("all")]
-        public ActionResult<PagedResult<CourseDto>> GetAll([FromQuery] Query query)
+        public ActionResult<PagedResult<CourseDto>> GetAll([FromQuery] CourseQuery query)
         {
             var result = _courseService.GetAll(query);
             return Ok(result);

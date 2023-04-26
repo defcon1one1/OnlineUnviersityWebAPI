@@ -30,7 +30,7 @@ namespace OnlineUniversityWebAPI.Presentation.Controllers
         }
         [HttpGet("all")]
         
-        public ActionResult<IEnumerable<StudentDto>> GetAll([FromQuery] Query query)
+        public ActionResult<IEnumerable<StudentDto>> GetAll([FromQuery] StudentQuery query)
         {
             var studentDtos = _studentService.GetAll(query);
             return Ok(studentDtos);

@@ -35,7 +35,7 @@ namespace OnlineUniversityWebAPI.Services
             return result;
         }
 
-        public PagedResult<StudentDto> GetAll(Query query)
+        public PagedResult<StudentDto> GetAll(StudentQuery query)
         {
             var baseQuery = _dbContext.Students
                 .Include(s => s.Enrollments)

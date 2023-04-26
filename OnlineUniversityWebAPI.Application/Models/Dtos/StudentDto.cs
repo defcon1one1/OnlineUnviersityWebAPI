@@ -9,7 +9,7 @@ namespace OnlineUniversityWebAPI.Application.Models.Dtos
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public List<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+        public List<EnrollmentDto> Enrollments { get; set; } = new List<EnrollmentDto>();
 
         public int Age => CalculateAge();
 

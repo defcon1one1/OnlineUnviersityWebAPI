@@ -61,7 +61,7 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddScoped<IValidator<RegisterStudentDto>, RegisterStudentDtoValidator>();
-builder.Services.AddScoped<IValidator<Query>, StudentQueryValidator>();
+builder.Services.AddScoped<IValidator<StudentQuery>, StudentQueryValidator>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<RequestTimeMiddleware>();

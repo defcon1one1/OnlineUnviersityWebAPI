@@ -11,6 +11,6 @@ namespace OnlineUniversityWebAPI.Application.Services.Interfaces
     public interface ICourseService
     {
         CourseDto GetById(int id);
-        PagedResult<CourseDto> GetAll(Query query);
+        PagedResult<CourseDto> GetAll(CourseQuery query);
     }
 }

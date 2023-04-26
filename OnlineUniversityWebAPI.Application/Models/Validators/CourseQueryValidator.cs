@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace OnlineUniversityWebAPI.Application.Models.Validators
 {
-    public class StudentQueryValidator : AbstractValidator<StudentQuery>
+    public class CourseQueryValidator : AbstractValidator<CourseQuery>
     {
         private int[] allowedPageSizes = new[] { 5, 10, 25 };
-        private string[] allowedSortByColumnNames = new[] { nameof(Student.FirstName), nameof(Student.LastName), nameof(Student.Age) };
-        public StudentQueryValidator()
+        private string[] allowedSortByColumnNames = new[] { nameof(Course.Name) };
+        public CourseQueryValidator()
         {
             RuleFor(q => q.PageNumber).GreaterThanOrEqualTo(1);
             RuleFor(q => q.PageSize).Custom((value, context) =>

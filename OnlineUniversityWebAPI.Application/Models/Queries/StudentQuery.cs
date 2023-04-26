@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineUniversityWebAPI.Application.Models.Queries
 {
-    public class Query
+    public class StudentQuery
     {
         public string? SearchPhrase { get; set; }
         public int PageNumber { get; set; }
