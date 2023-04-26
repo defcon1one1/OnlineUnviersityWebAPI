@@ -10,29 +10,28 @@ namespace OnlineUniversityWebAPI.Presentation.Middleware
         {
             _logger = logger;
         }
-        public Task InvokeAsync(HttpContext context, RequestDelegate next)
+        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
             try
             {
-                next.Invoke(context);
+                await next.Invoke(context);
             }
-            catch(BadRequestException badRequestException)
+            catch (BadRequestException badRequestException)
             {
                 context.Response.StatusCode = 400;
-                context.Response.WriteAsync(badRequestException.Message);
+                await context.Response.WriteAsync(badRequestException.Message);
             }
             catch (NotFoundException notFoundException)
             {
                 context.Response.StatusCode = 404;
-                context.Response.WriteAsync(notFoundException.Message);
+                await context.Response.WriteAsync(notFoundException.Message);
             }
             catch(Exception e)
             {
                 _logger.LogError(e, e.Message);
                 context.Response.StatusCode = 500;
-                context.Response.WriteAsync("Something went wrong");
+                await context.Response.WriteAsync("Something went wrong");
             }
-            return Task.CompletedTask;
         }
     }
 }

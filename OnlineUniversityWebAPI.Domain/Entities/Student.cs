@@ -12,7 +12,7 @@ namespace OnlineUniversityWebAPI.Domain.Entities
 
         public int Age => CalculateAge();
 
-        private int CalculateAge()
+        public int CalculateAge()
         {
             int age = DateTime.Today.Year - DateOfBirth.Year;
 

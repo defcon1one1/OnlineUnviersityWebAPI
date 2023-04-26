@@ -12,7 +12,7 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
     public class CourseQueryValidator : AbstractValidator<CourseQuery>
     {
         private int[] allowedPageSizes = new[] { 5, 10, 25 };
-        private string[] allowedSortByColumnNames = new[] { nameof(Course.Name) };
+        private string[] allowedSortByColumnNames = new[] { nameof(Course.Name), nameof(Course.Id) };
         public CourseQueryValidator()
         {
             RuleFor(q => q.PageNumber).GreaterThanOrEqualTo(1);

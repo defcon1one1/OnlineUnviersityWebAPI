@@ -12,7 +12,7 @@ namespace OnlineUniversityWebAPI.Application.Models.Validators
     public class StudentQueryValidator : AbstractValidator<StudentQuery>
     {
         private int[] allowedPageSizes = new[] { 5, 10, 25 };
-        private string[] allowedSortByColumnNames = new[] { nameof(Student.FirstName), nameof(Student.LastName), nameof(Student.Age) };
+        private string[] allowedSortByColumnNames = new[] { nameof(Student.FirstName), nameof(Student.LastName), nameof(Student.Age), nameof(Student.Id) };
         public StudentQueryValidator()
         {
             RuleFor(q => q.PageNumber).GreaterThanOrEqualTo(1);
